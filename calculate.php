@@ -49,12 +49,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <td><?= number_format($result['vat_amount'], 2) ?></td>
                 <td><?= number_format($result['expenses_amount'], 2) ?></td>
                 <td><?= number_format($result['profit_amount'], 2) ?></td>
-                <td><?= number_format($result['selling_price'], 2) ?></td>
+                <td class="success"><?= number_format($result['selling_price'], 2) ?></td>
             </tr>
         <?php endforeach; ?>
     </table>
-    <form action="index.php" method="get">
-        <input type="submit" value="Go Back">
-    </form>
+    <div class="buttons">
+        <form action="index.php" method="get">
+            <input type="submit" value="Go Back">
+        </form>
+        <form action="export_csv.php" method="post">
+            <input type="hidden" name="results" value='<?= json_encode($results) ?>'>
+            <input type="hidden" name="buying_prices" value='<?= json_encode($buying_prices) ?>'>
+            <input type="submit" value="Export CSV">
+        </form>
+    </div>
 </body>
 </html>

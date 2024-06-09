@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,13 +9,11 @@
 <body>
     <h1>Hypermarket Price Calculator</h1>
     <form action="calculate.php" method="post">
-        <h3>Buying Prices for Products</h3>
-        <label for="buying_price_1">Buying Prices:</label>
+        <h3>Buying Prices</h3>
         <?php for ($i = 1; $i <= 10; $i++): ?>
-            <p>Product <?= $i ?></p>
+            <label for="buying_price_<?= $i ?>">Product <?= $i ?>:</label>
             <input type="number" step="0.01" id="buying_price_<?= $i ?>" name="buying_price[]" required><br>
         <?php endfor; ?>
-        
         <h3>General Details</h3>
         <label for="vat">VAT (%):</label>
         <input type="number" step="0.01" id="vat" name="vat" required><br>
