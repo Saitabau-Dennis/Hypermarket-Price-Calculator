@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Open the output stream
     $output = fopen('php://output', 'w');
-
+    
     // Output the column headings
     fputcsv($output, ['Product', 'Buying Price', 'VAT Amount', 'General Expenses Amount', 'Profit Margin Amount', 'Selling Price']);
 

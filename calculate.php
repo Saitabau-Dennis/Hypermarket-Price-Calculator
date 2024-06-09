@@ -63,5 +63,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="submit" value="Export CSV">
         </form>
     </div>
+    <div class="spinner" id="spinner"></div>
+    <script>
+        document.querySelector('form[action="calculate.php"]').addEventListener('submit', function(e) {
+            document.querySelector('input[type="submit"]').disabled = true;
+            document.getElementById('spinner').style.display = 'block';
+        });
+    </script>
 </body>
 </html>
